@@ -33,8 +33,8 @@ def load_schema
   require File.dirname(__FILE__) + '/../init'
 end
 
-class PublishedAtPost < ActiveRecord::Base
-end
-
 load_schema
 
+class PublishedAtPost < ActiveRecord::Base
+  has_date_checkbox :published_at
+end

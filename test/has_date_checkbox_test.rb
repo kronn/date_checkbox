@@ -59,13 +59,6 @@ class HasDateCheckboxTest < ActiveSupport::TestCase
   end
 
   def instance
-    @instance ||= begin
-                    inst = PublishedAtPost.new
-                    inst.class.send(:include, DateCheckbox::HasDateCheckbox)
-                    inst.class.class_eval do
-                      has_date_checkbox :published_at
-                    end
-                    inst
-                  end
+    @instance ||= PublishedAtPost.new
   end
 end
