@@ -16,6 +16,18 @@ class HasDateCheckboxTest < ActiveSupport::TestCase
     assert_respond_to instance, :published?
   end
 
+  test "returns something falsish when attribute is not set" do
+    instance.published_at = nil
+    assert_equal false, instance.published?
+    assert_equal I18n.t(:not_published), instance.published
+  end
+
+  test "returns something trueish when attribute is set" do
+    instance.published_at = 1.minute.ago
+    assert_equal true,  instance.published?
+    assert_equal I18n.t(:is_published), instance.published
+  end
+
   test "has_date_checkbox defines a custom writer for the given attribute" do
     assert_respond_to instance, :'published='
   end

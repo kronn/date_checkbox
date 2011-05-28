@@ -9,9 +9,15 @@ module DateCheckbox
         method_name = db_field.to_s.sub(/_at$/, '')
         class_eval do
           define_method("#{method_name}") do
+            if attribute_present?(db_field)
+              I18n.t(:"is_#{method_name}")
+            else
+              I18n.t(:"not_#{method_name}")
+            end
           end
 
           define_method("#{method_name}?") do
+            attribute_present?(db_field)
           end
 
           define_method("#{method_name}=") do |value|
