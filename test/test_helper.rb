@@ -32,3 +32,9 @@ def load_schema
   load(File.dirname(__FILE__) + "/schema.rb")
   require File.dirname(__FILE__) + '/../init'
 end
+
+class PublishedAtPost < ActiveRecord::Base
+end
+
+load_schema
+
