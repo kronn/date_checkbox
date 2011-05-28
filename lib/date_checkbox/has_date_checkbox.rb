@@ -7,6 +7,7 @@ module DateCheckbox
     module ClassMethods
       def has_date_checkbox(db_field)
         method_name = db_field.to_s.sub(/_at$/, '')
+        # send :include, InstanceMethods
         class_eval do
           define_method("#{method_name}") do
             if attribute_present?(db_field)
@@ -30,5 +31,8 @@ module DateCheckbox
         end
       end
     end
+
+    # module InstanceMethods
+    # end
   end
 end
