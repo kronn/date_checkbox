@@ -21,6 +21,11 @@ module DateCheckbox
           end
 
           define_method("#{method_name}=") do |value|
+            if value.to_s == "0"
+              write_attribute(db_field, nil)
+            else
+              write_attribute(db_field, Time.now)
+            end
           end
         end
       end

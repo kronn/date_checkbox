@@ -31,6 +31,25 @@ class HasDateCheckboxTest < ActiveSupport::TestCase
   test "has_date_checkbox defines a custom writer for the given attribute" do
     assert_respond_to instance, :'published='
   end
+
+  test "can be reset to 'not yet'" do
+    instance.published = "0"
+    assert !instance.published?
+  end
+
+  test "can be set to 'right now'" do
+    instance.published = "1"
+    assert instance.published?
+  end
+
+  test "works with update_attributes" do
+    assert !instance.published?
+    instance.update_attributes!({:published => "1"})
+    assert instance.published?
+    instance.update_attributes!({:published => "0"})
+    assert !instance.published?
+  end
+
   protected
 
   def klass
