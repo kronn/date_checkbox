@@ -1,13 +1,83 @@
 DateCheckbox
-============
+====================
 
-Introduction goes here.
+I wanted to have a checkbox for attributes which are datetime-fields in the
+database. So, if I want to store the date I appected some terms or received
+some goods, I do not want to go through the hassle of selecting the proper date
+and time from 6 dropdowns. I just want to check a checkbox and have my app to
+the rest. In many cases, this is even required security- or permission-wise.
+
+While this functionality is fairly easy to implement for one datetime-field
+(like terms_accepted_at), I don't like to repeat this code.
+
+Therefore, I put this rails-plugin together.
+
+A neat side-effect is, that I went and created a form-helper and added some
+useful model methods along the way.
+
+
+Installation
+--------------------
+
+Just add
+
+  gem 'date_checkbox'
+
+to your Gemfile. If your not using Bundler and Rails3 by now, we can still be
+friends, but thats about it.
 
 
 Example
-=======
+--------------------
 
-Example goes here.
+  # app/models/user.rb
+  class User < ActiveRecord::Base
+    has_date_checkbox :terms_accepted_at
+  end
+
+This adds the following three methods to the user-model:
+
+* terms_accepted   # returns "0" or "1"
+* terms_accepted=  # "1" sets to the current Time, otherwise sets to nil
+* terms_accepted?  # true or false
+
+
+  # app/views/users/_form.html.erb
+  <%= form_for @user do |f| %>
+    <p><%= f.date_checkbox :terms_accepted_at %></p>
+  <% end -%>
+
+The date_checkbox appends the date form the database if its selected. If you do
+not want that, simply use
+
+  f.checkbox :terms_accepted
+
+This is what f.date_checkbox uses anyway.
+
+
+Notes
+--------------------
+
+Currently, I hook into ActionPack/ActionView directly, which is dirty by saves
+you from declaring a different FormBuilder for every form. I also refrained
+from changing the default-form builder for you because I don't want to conflict
+with other form-extensions you might want to use.
+
+If everything goes south, you can still use the model-methods. This is not (by
+any means) über-rocket-science. It's just convenient.
+
+Your turn.
+
+
+Development
+--------------------
+
+Cpt. Obvious told me the following:
+
+  This is open-sourced on github.
+  You can contribute by sending pull-requests or just opening issues.
+
+He is obviously right and you also knew that. Any feedback is appreciated.
 
 
 Copyright (c) 2011 Matthias Viehweger, released under the MIT license
