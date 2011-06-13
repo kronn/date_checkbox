@@ -1,0 +1,5 @@
+- make test run indepently
+  => this might mean that a host app needs to be generated.
+     after all, I depend on AR::Base and do only a little meta-progamming...
+- put onto travis
+- implement has_date_checkboxes *args
