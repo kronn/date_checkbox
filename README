@@ -1,9 +1,18 @@
 DateCheckbox
 ====================
 
-I wanted to have a checkbox for attributes which are datetime-fields in the
-database. So, if I want to store the date I appected some terms or received
-some goods, I do not want to go through the hassle of selecting the proper date
+This is a rails-plugin which can create a checkbox for attributes which are
+datetime-fields in the database. So, if you want to store the date when a user
+appected some terms or received some goods, but want to circumvent the need of
+selecting the proper date and time from 6 dropdowns, you can just use this
+plugin.
+
+It creates some wrapper-methods on the model for the attributes you specify and
+provides a form-helper which uses these. The model-methods also work with
+standard checkbox-tags.
+
+
+Personally, I do not want to go through the hassle of selecting the proper date
 and time from 6 dropdowns. I just want to check a checkbox and have my app to
 the rest. In many cases, this is even required security- or permission-wise.
 

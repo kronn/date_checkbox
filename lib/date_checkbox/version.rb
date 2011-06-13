@@ -12,7 +12,7 @@ module DateCheckbox
     selecting the proper date and time from 6 dropdowns, you can just use this
     plugin.
 
-    It created some wrapper-methods on the model for the attributes you specify and
+    It creates some wrapper-methods on the model for the attributes you specify and
     provides a form-helper which uses these. The model-method also work with
     standard checkbox-tags
   EOD
