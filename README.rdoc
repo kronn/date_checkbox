@@ -1,5 +1,4 @@
-DateCheckbox
-====================
+= DateCheckbox
 
 This is a rails-plugin which can create a checkbox for attributes which are
 datetime-fields in the database. So, if you want to store the date when a user
@@ -25,8 +24,7 @@ A neat side-effect is, that I went and created a form-helper and added some
 useful model methods along the way.
 
 
-Installation
---------------------
+== Installation
 
 Just add
 
@@ -36,8 +34,7 @@ to your Gemfile. If your not using Bundler and Rails3 by now, we can still be
 friends, but thats about it.
 
 
-Example
---------------------
+== Example
 
   # app/models/user.rb
   class User < ActiveRecord::Base
@@ -50,6 +47,7 @@ This adds the following three methods to the user-model:
 * terms_accepted=  # "1" sets to the current Time, otherwise sets to nil
 * terms_accepted?  # true or false
 
+You can use it the form-helper like this:
 
   # app/views/users/_form.html.erb
   <%= form_for @user do |f| %>
@@ -64,8 +62,7 @@ not want that, simply use
 This is what f.date_checkbox uses anyway.
 
 
-Notes
---------------------
+== Notes
 
 Currently, I hook into ActionPack/ActionView directly, which is dirty by saves
 you from declaring a different FormBuilder for every form. I also refrained
@@ -78,8 +75,7 @@ any means) über-rocket-science. It's just convenient.
 Your turn.
 
 
-Development
---------------------
+== Development
 
 Cpt. Obvious told me the following:
 
