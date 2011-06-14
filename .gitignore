@@ -1,2 +1,5 @@
 test/debug.log
 Gemfile.lock
+*.gem
+.cache_rake_t
+doc/rdoc

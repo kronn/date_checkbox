@@ -26,4 +26,5 @@ spec = Gem::Specification.new do |s|
   # for release and doc generation, more less optional
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rdoc', '>= 2.4.2'
+  s.add_development_dependency 'sdoc'
 end

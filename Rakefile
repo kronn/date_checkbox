@@ -1,6 +1,7 @@
 require 'rake'
 require 'rake/testtask'
-require 'rake/rdoctask'
+require 'rdoc/task'
+require 'sdoc'
 
 desc 'Default: run unit tests.'
 task :default => :test
@@ -15,9 +16,16 @@ end
 
 desc 'Generate documentation for the date_checkbox plugin.'
 Rake::RDocTask.new(:rdoc) do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'DateCheckbox'
+  require File.expand_path('../lib/date_checkbox/version', __FILE__)
+
+  rdoc.rdoc_dir = 'doc/rdoc'
+  rdoc.title    = "DateCheckbox #{DateCheckbox::VERSION}"
   rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README')
+  rdoc.options << '--charset=utf-8'
+  rdoc.options << '--fmt=shtml'
+
+  DateCheckbox::EXTRA_RDOC_FILES.each do |file|
+    rdoc.rdoc_files.include(file)
+  end
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

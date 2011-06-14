@@ -17,5 +17,5 @@ module DateCheckbox
     standard checkbox-tags
   EOD
 
-  EXTRA_RDOC_FILES = ['README']
+  EXTRA_RDOC_FILES = ['README.rdoc']
 end
