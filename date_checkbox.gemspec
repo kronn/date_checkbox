@@ -21,7 +21,7 @@ spec = Gem::Specification.new do |s|
   s.rdoc_options = ['--charset=utf-8', '--fmt=shtml', '--all']
   s.extra_rdoc_files = DateCheckbox::EXTRA_RDOC_FILES
 
-  s.add_dependency 'rails', '~> 3.0.0'
+  s.add_dependency 'rails', '~> 3.2.17'
 
   # for release and doc generation, more less optional
   s.add_development_dependency 'rake'
